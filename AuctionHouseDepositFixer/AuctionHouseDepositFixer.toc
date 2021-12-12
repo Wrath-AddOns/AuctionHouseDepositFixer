@@ -1,6 +1,6 @@
 ## Interface: 30300
-## Title: AH Deposit Fixer
-## Notes: Modifies the deposit displayed on items in the Auction House
+## Title: A|cffff84d1H |r|cffe5e3e3Deposit Fixer|r+
+## Notes: Modifies the deposit displayed on items in the Original Auction House, AucionLite(1.7.2) addon
 ## LoadOnDemand: 1
 ## LoadWith: Blizzard_AuctionUI
 
