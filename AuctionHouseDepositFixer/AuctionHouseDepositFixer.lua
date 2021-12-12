@@ -17,6 +17,29 @@ hooksecurefunc("UpdateDeposit", function()
 	GetModifiedDeposit()
 end)
 
+
+-- AuctionLite Fix
+
+if (IsAddOnLoaded("AuctionLite")) then
+function AuctionLite:CalculateDeposit()
+
+        local time = self:GetDuration();
+
+        local _, _, _, _, _, _, link = self:GetAuctionSellItemInfoAndLink();
+        local numItems = self:CountItems(link);
+        local stacks = SellStacks:GetNumber();
+        local size = SellSize:GetNumber();
+
+        local numPosted = math.min(numItems, stacks * size);
+
+        local _, _, count = GetAuctionSellItemInfo();
+
+        return math.floor(CalculateAuctionDeposit(AuctionFrameAuctions.duration, SellSize:GetNumber() * SellStacks:GetNumber())*(10 / 100))
+    end
+end
+
+
+
 hooksecurefunc("AuctionFrameTab_OnClick", function(self, index)
 	local index = self:GetID();
 	PanelTemplates_SetTab(AuctionFrame, index);
